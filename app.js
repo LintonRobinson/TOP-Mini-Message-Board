@@ -4,6 +4,7 @@ const path = require("node:path");
 
 // Router Imports
 const indexRouter = require("./routes/indexRouter.js");
+const groomingRequestRouter = require("./routes/groomingRequestRouter.js");
 
 // Static Asset Configuration
 const assetsPath = path.join(__dirname, "public");
@@ -18,5 +19,6 @@ const PORT = 3000;
 //
 
 app.use("/", indexRouter);
+app.use("/grooming-requests", groomingRequestRouter);
 
 app.listen(PORT, () => console.log("Running!"));
