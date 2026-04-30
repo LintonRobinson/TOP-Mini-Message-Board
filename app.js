@@ -3,7 +3,7 @@ const app = express();
 const path = require("node:path");
 
 // Router Imports
-const indexRouter = require("./routes/indexRouter.js");
+const { indexRouter } = require("./routes/indexRouter.js");
 const groomingRequestRouter = require("./routes/groomingRequestRouter.js");
 
 // Static Asset Configuration
@@ -16,7 +16,8 @@ app.set("view engine", "ejs");
 // Server Port
 const PORT = 3000;
 
-//
+// Parse Form Input Values and Return Variables With Names
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 app.use("/grooming-requests", groomingRequestRouter);

@@ -19,4 +19,4 @@ indexRouter.get("/", (req, res) => {
   res.render("index", { title: "Grooming Requests", groomingRequests: groomingRequests });
 });
 
-module.exports = indexRouter;
+module.exports = { indexRouter, groomingRequests };
