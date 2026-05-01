@@ -12,4 +12,8 @@ groomingRequestRouter.post("/new", (req, res) => {
   res.redirect("/");
 });
 
+groomingRequestRouter.get("/:id", (req, res) => {
+  res.render("groomingRequest", { title: `${groomingRequests[Number(req.params.id) - 1].dog}'s Grooming Request`, groomingRequest: groomingRequests[Number(req.params.id) - 1] });
+});
+
 module.exports = groomingRequestRouter;

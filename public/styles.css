@@ -98,7 +98,7 @@ button:hover {
 }
 
 /******************************************
-/* INDEX PAGE LAYOUT
+/* LAYOUT
 /*******************************************/
 main {
   padding-top: 100px;
@@ -147,10 +147,6 @@ img {
 .new-grooming-request {
   align-self: flex-end;
 }
-
-/******************************************
-/* FORM PAGE LAYOUT
-/*******************************************/
 
 form {
   display: flex;
@@ -203,6 +199,26 @@ textarea {
 }
 
 .back-button img {
+  height: 25px;
+}
+
+.current-grooming-request {
+  margin-bottom: 8px;
+}
+
+.back-button-right {
+  background: none;
+  border: none;
+  opacity: 1;
+  transition: 0.5s ease;
+  font-size: 1rem;
+  color: #196bc1;
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.back-button-right img {
   height: 25px;
 }
 

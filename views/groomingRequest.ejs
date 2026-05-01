@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/png" href="/assets/paw-svgrepo-com.svg">
+    <title>Grooming Requests</title>
+</head>
+<main>
+    <div>
+        <img src="/assets/paw-svgrepo-com.svg" alt="">
+        <h1>
+            <%=title%>
+        </h1>
+    </div>
+    <div class="grooming-requests-wrapper">
+        <div class="grooming-request">
+            <div>
+                <h3>
+                    <%=groomingRequest.dog%>
+                </h3>
+                <p class="current-grooming-request"><b><i>Client Request:</i></b>
+                    <%=groomingRequest.groomingRequests%>
+                </p>
+                <span class="grooming-request-timestamp">
+                    Time Requested: <%=groomingRequest.added%>
+                </span>
+            </div>
+
+        </div>
+        <a href="/" class="back-button-right"><img src="/assets/back-svgrepo-com.svg" alt=""> Back</a>
+
+    </div>
+</main>
