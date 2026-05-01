@@ -222,6 +222,15 @@ textarea {
   height: 25px;
 }
 
+.error-page {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.error-page .back-button-right {
+  align-self: center;
+}
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/

@@ -22,4 +22,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/grooming-requests", groomingRequestRouter);
 
-app.listen(PORT, () => console.log("Running!"));
+app.use((req, res, next) => {
+  res.status(404).render("errorPage");
+});
+
+app.use((err, req, res, next) => {
+  res.status(404).render("errorPage");
+});
+
+app.listen(PORT);
