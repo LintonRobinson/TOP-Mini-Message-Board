@@ -30,4 +30,12 @@ app.use((err, req, res, next) => {
   res.status(404).render("errorPage");
 });
 
-app.listen(PORT);
+app.listen(PORT, () => {
+  (err) => {
+    if (err) {
+      console.error("Server failed to start:", err);
+    } else {
+      console.log(`Server running on port ${PORT}`);
+    }
+  };
+});
