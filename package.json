@@ -6,6 +6,6 @@
     "pg": "^8.20.0"
   },
   "scripts": {
-    "start": "node populatedb.js"
+    "start": "node db/populate.js && node app.js"
   }
 }
