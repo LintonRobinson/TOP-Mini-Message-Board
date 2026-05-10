@@ -8,7 +8,7 @@ groomingRequestRouter.get("/new", (req, res) => {
   res.render("newGroomingRequest", { title: "New Grooming Request" });
 });
 
-groomingRequestRouter.post("/new", groomingRequestController.insertGroomingOrder);
+groomingRequestRouter.post("/new", groomingRequestController.validatedGroomingOrder, groomingRequestController.insertGroomingOrder);
 
 groomingRequestRouter.get("/:id", groomingRequestController.getGroomingOrder);
 

@@ -1,13 +1,22 @@
 const db = require("../db/queries");
-
+const { body, validationResult, matchedData } = require("express-validator");
+const validatedGroomingOrder = [
+  body("dog_name").trim().notEmpty().withMessage("Please enter dog name").isAlpha().withMessage("Dog name can not include numbers or special characters"),
+  body("grooming_requests").trim().notEmpty().withMessage("Please enter grooming request"),
+];
 async function insertGroomingOrder(req, res) {
-  await db.insertGroomingOrder(req.body);
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.render("newGroomingRequest", { title: "New Grooming Request", errors: errors.array() });
+  }
+
+  const { dog_name, grooming_requests } = matchedData(req);
+  await db.insertGroomingOrder({ dog_name, grooming_requests, added: new Date() });
   res.redirect("/");
 }
 
 async function getGroomingOrder(req, res) {
   const groomingOrder = await db.getGroomingOrder(Number(req.params.id));
-  console.log("groomingOrder", groomingOrder);
   res.render("groomingRequest", { title: `${groomingOrder[0].dog}'s Grooming Request`, groomingRequest: groomingOrder[0] });
 }
 
@@ -20,4 +29,5 @@ module.exports = {
   insertGroomingOrder,
   getGroomingOrders,
   getGroomingOrder,
+  validatedGroomingOrder,
 };
