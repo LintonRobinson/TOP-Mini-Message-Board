@@ -3,11 +3,10 @@ const pool = require("./pool.js");
 async function getGroomingOrders() {
   try {
     const { rows } = await pool.query("SELECT * FROM grooming_orders;");
+    return rows;
   } catch (error) {
     console.error("query error:", err);
   }
-
-  return rows;
 }
 
 async function getGroomingOrder(id) {
@@ -28,11 +27,7 @@ async function insertGroomingOrder(groomingOrder) {
 }
 
 async function deleteGroomingOrder(id) {
-  try {
-    await pool.query("DELETE FROM grooming_orders WHERE dog LIKE $1", [`%${dog}%;`]);
-  } catch (error) {
-    console.error("query error:", err);
-  }
+  await pool.query("DELETE FROM grooming_orders WHERE id = $1", [id]);
 }
 
 module.exports = {
