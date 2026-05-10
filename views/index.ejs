@@ -25,8 +25,13 @@
                         <%= groomingOrder.added %>
                     </span>
                 </div>
-                <a href="/grooming-requests/<%= groomingOrder.id%>" class="view-grooming-request">View
-                    Request</a>
+                <div class="grooming-order-buttons">
+                    <a href="/grooming-requests/<%= groomingOrder.id%>" class="view-grooming-request">View
+                        Request</a>
+                    <form method="POST" action="/grooming-requests/delete/<%=groomingOrder.id%>">
+                        <button class="delete-grooming-request" type="submit">Delete</button>
+                    </form>
+                </div>
             </div>
             <% }) %>
                 <a href="/grooming-requests/new" class="new-grooming-request">New Grooming Order</a>

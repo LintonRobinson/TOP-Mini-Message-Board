@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const { groomingRequests } = require("./indexRouter.js");
 const groomingRequestController = require("../controllers/groomingRequestController.js");
 
 const groomingRequestRouter = Router();
@@ -9,6 +8,8 @@ groomingRequestRouter.get("/new", (req, res) => {
 });
 
 groomingRequestRouter.post("/new", groomingRequestController.validatedGroomingOrder, groomingRequestController.insertGroomingOrder);
+
+groomingRequestRouter.post("/delete/:id", groomingRequestController.deleteGroomingOrder);
 
 groomingRequestRouter.get("/:id", groomingRequestController.getGroomingOrder);
 
