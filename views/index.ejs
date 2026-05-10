@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="icon" type="image/png" href="/assets/paw-svgrepo-com.svg">
-    <title>Grooming Requests</title>
+    <title>Grooming Orders</title>
 </head>
 <main>
     <div>
@@ -15,20 +15,20 @@
         </h1>
     </div>
     <div class="grooming-requests-wrapper">
-        <% groomingRequests.forEach((groomingRequest, index)=> { %>
+        <% groomingOrders.forEach((groomingOrder, index)=> { %>
             <div class="grooming-request">
                 <div>
                     <h3>
-                        <%= groomingRequest.dog %> - Grooming Order
+                        <%= groomingOrder.dog %> - Grooming Order
                     </h3>
                     <span class="grooming-request-timestamp">
-                        <%= groomingRequest.added %>
+                        <%= groomingOrder.added %>
                     </span>
                 </div>
-                <a href="/grooming-requests/<%= index+1%>" class="view-grooming-request">View
+                <a href="/grooming-requests/<%= groomingOrder.id%>" class="view-grooming-request">View
                     Request</a>
             </div>
             <% }) %>
-                <a href="/grooming-requests/new" class="new-grooming-request">New Grooming Request</a>
+                <a href="/grooming-requests/new" class="new-grooming-request">New Grooming Order</a>
     </div>
 </main>
